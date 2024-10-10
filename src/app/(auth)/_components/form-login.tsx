@@ -10,10 +10,7 @@ export default function FormLogin() {
   return (
     <form className="space-y-6" action={formAction}>
       {state?.message ? (
-        <div
-          className="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-100"
-          role="alert"
-        >
+        <div className="p-4 mb-4 text-sm text-red-500 bg-red-900 rounded-lg" role="alert">
           <span className="font-medium">{state?.message}</span>
         </div>
       ) : null}
@@ -21,7 +18,7 @@ export default function FormLogin() {
       <div>
         <label
           htmlFor="email"
-          className="block mb-2 text-sm font-medium text-gray-900"
+          className="block mb-2 text-sm font-medium text-gray-400"
         >
           Email
         </label>
@@ -29,7 +26,7 @@ export default function FormLogin() {
           type="text"
           name="email"
           placeholder="john.doe@example.com"
-          className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg w-full p-2.5"
+          className="bg-dark-700 border border-gray-600 text-white rounded-lg w-full p-2.5 focus:outline-none focus:ring-2 focus:ring-yellow-500"
         />
         <div aria-live="polite" aria-atomic="true">
           <span className="text-sm text-red-500 mt-2">
@@ -37,10 +34,11 @@ export default function FormLogin() {
           </span>
         </div>
       </div>
+
       <div>
         <label
           htmlFor="password"
-          className="block mb-2 text-sm font-medium text-gray-900"
+          className="block mb-2 text-sm font-medium text-gray-400"
         >
           Password
         </label>
@@ -48,7 +46,7 @@ export default function FormLogin() {
           type="password"
           name="password"
           placeholder="**********"
-          className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg w-full p-2.5"
+          className="bg-dark-700 border border-gray-600 text-white rounded-lg w-full p-2.5 focus:outline-none focus:ring-2 focus:ring-yellow-500"
         />
         <div aria-live="polite" aria-atomic="true">
           <span className="text-sm text-red-500 mt-2">
@@ -59,11 +57,11 @@ export default function FormLogin() {
 
       <LoginButton />
 
-      <p className="text-sm font-light text-gray-500">
+      <p className="text-sm font-light text-gray-400">
         Don&apos;t have an account yet?
         <Link href="/register">
           {" "}
-          <span className="font-medium pl-1 text-blue-600 hover:text-blue-700">
+          <span className="font-medium pl-1 text-yellow-500 hover:text-yellow-400">
             Sign Up
           </span>
         </Link>

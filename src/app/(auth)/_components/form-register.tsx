@@ -17,10 +17,11 @@ export default function FormRegister() {
           <span className="font-medium">{state?.message}</span>
         </div>
       ) : null}
+      
       <div>
         <label
           htmlFor="name"
-          className="block mb-2 text-sm font-medium text-gray-900"
+          className="block mb-2 text-sm font-medium text-gray-300"
         >
           Name
         </label>
@@ -28,7 +29,7 @@ export default function FormRegister() {
           type="text"
           name="name"
           placeholder="John Doe"
-          className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg w-full p-2.5"
+          className="bg-gray-800 border border-gray-600 text-gray-200 rounded-lg w-full p-2.5 focus:border-blue-500 focus:ring-blue-500"
         />
         <div aria-live="polite" aria-atomic="true">
           <span className="text-sm text-red-500 mt-2">
@@ -36,18 +37,19 @@ export default function FormRegister() {
           </span>
         </div>
       </div>
+      
       <div>
         <label
           htmlFor="email"
-          className="block mb-2 text-sm font-medium text-gray-900"
+          className="block mb-2 text-sm font-medium text-gray-300"
         >
           Email
         </label>
         <input
-          type="text"
+          type="email"
           name="email"
           placeholder="john.doe@example.com"
-          className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg w-full p-2.5"
+          className="bg-gray-800 border border-gray-600 text-gray-200 rounded-lg w-full p-2.5 focus:border-blue-500 focus:ring-blue-500"
         />
         <div aria-live="polite" aria-atomic="true">
           <span className="text-sm text-red-500 mt-2">
@@ -55,10 +57,11 @@ export default function FormRegister() {
           </span>
         </div>
       </div>
+      
       <div>
         <label
           htmlFor="password"
-          className="block mb-2 text-sm font-medium text-gray-900"
+          className="block mb-2 text-sm font-medium text-gray-300"
         >
           Password
         </label>
@@ -66,7 +69,7 @@ export default function FormRegister() {
           type="password"
           name="password"
           placeholder="**********"
-          className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg w-full p-2.5"
+          className="bg-gray-800 border border-gray-600 text-gray-200 rounded-lg w-full p-2.5 focus:border-blue-500 focus:ring-blue-500"
         />
         <div aria-live="polite" aria-atomic="true">
           <span className="text-sm text-red-500 mt-2">
@@ -74,10 +77,11 @@ export default function FormRegister() {
           </span>
         </div>
       </div>
+      
       <div>
         <label
           htmlFor="confirmPassword"
-          className="block mb-2 text-sm font-medium text-gray-900"
+          className="block mb-2 text-sm font-medium text-gray-300"
         >
           Confirm Password
         </label>
@@ -85,7 +89,7 @@ export default function FormRegister() {
           type="password"
           name="confirmPassword"
           placeholder="**********"
-          className="bg-gray-50 border border-gray-300 text-gray-900 rounded-lg w-full p-2.5"
+          className="bg-gray-800 border border-gray-600 text-gray-200 rounded-lg w-full p-2.5 focus:border-blue-500 focus:ring-blue-500"
         />
         <div aria-live="polite" aria-atomic="true">
           <span className="text-sm text-red-500 mt-2">
@@ -96,11 +100,11 @@ export default function FormRegister() {
 
       <RegisterButton />
 
-      <p className="text-sm font-light text-gray-500">
+      <p className="text-sm font-light text-gray-400">
         Already have an account?
         <Link href="/login">
           {" "}
-          <span className="font-medium pl-1 text-blue-600 hover:text-blue-700">
+          <span className="font-medium pl-1 text-blue-500 hover:text-blue-600">
             Sign In
           </span>
         </Link>

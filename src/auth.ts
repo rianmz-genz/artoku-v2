@@ -4,6 +4,8 @@ import { prisma } from "./lib/prisma";
 import Credentials from "next-auth/providers/credentials";
 import { SignInSchema } from "./lib/zod";
 import { compareSync } from "bcrypt-ts";
+import Google from "next-auth/providers/google";
+
 export const { handlers, signIn, signOut, auth } = NextAuth({
   adapter: PrismaAdapter(prisma),
   session: { strategy: "jwt" },
@@ -11,6 +13,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     signIn: "/login",
   },
   providers: [
+    Google,
     Credentials({
       credentials: {
         email: {},
@@ -36,4 +39,36 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
+  callbacks: {
+    authorized({ auth, request: { nextUrl } }) {
+      const isLoggedIn = !!auth?.user;
+      const PROTECTED_ROUTES = [
+        "/dashboard",
+        "/income",
+        "/expense",
+        "/savings-investment",
+      ];
+
+      if (!isLoggedIn && PROTECTED_ROUTES.includes(nextUrl.pathname)) {
+        return Response.redirect(new URL("/login", nextUrl));
+      }
+
+      if (isLoggedIn && nextUrl.pathname.startsWith("/login")) {
+        return Response.redirect(new URL("/dashboard", nextUrl));
+      }
+
+      return true;
+    },
+
+    jwt({ token, user }) {
+      if (user) token.role = user.role;
+      return token;
+    },
+
+    session({ session, token }) {
+      session.user.id = token.sub;
+      session.user.role = token.role;
+      return session;
+    },
+  },
 });

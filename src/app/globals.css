@@ -1,3 +1,36 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    background-color: #1a1a1a;
+}
+
+.bg-dark-900 {
+    background-color: #1a1a1a;
+  }
+  
+  .bg-dark-800 {
+    background-color: #2a2a2a;
+  }
+  
+  .bg-dark-700 {
+    background-color: #3a3a3a;
+  }
+  
+  .text-yellow-500 {
+    color: #f5a623;
+  }
+  
+  .text-gray-400 {
+    color: #b0b0b0;
+  }
+  
+  .border-gray-600 {
+    border-color: #4a4a4a;
+  }
+  
+  .focus\:ring-yellow-500 {
+    --tw-ring-color: #f5a623;
+  }
+  
